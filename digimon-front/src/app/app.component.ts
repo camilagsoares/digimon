@@ -4,32 +4,37 @@ import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { DigimonService } from './Digimon.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+
+export interface Digimon {
+  name: string;
+  img: string;
+  level: string;
+}
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HttpClientModule,HeaderComponent],
+  imports: [RouterOutlet, HttpClientModule, HeaderComponent, CommonModule],
   templateUrl: './app.component.html',
+  providers: [DigimonService],
   styleUrl: './app.component.css',
-  template: `
-    <div *ngFor="let digimon of digimons">
-      <h1>{{digimon.name}}</h1>
-      <p>{{digimon.description}}</p>
-    </div>
-  `,
+
 })
 export class AppComponent {
-  title = 'digimon-front';
-  digimon: any;
 
-  constructor(private http: HttpClient) {
-    this.getDigimon();
-  }
+  digimonList: Digimon[] = [];
+  pageSize = 10;
+  currentPage = 1;
+  constructor(private digimonService: DigimonService) { }
 
-  getDigimon() {
-    this.http.get('https://digi-api.com/api/v1/digimon').subscribe(data => {
-      this.digimon = data;
-      console.log(data)
+  ngOnInit() {
+    this.digimonService.getDigimon().subscribe((data: Digimon[]) => {
+      this.digimonList = data;
+      console.log( this.digimonList )
     });
   }
 }
