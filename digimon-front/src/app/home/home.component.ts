@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { DigimonService } from '../services/digimon.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { debounceTime, switchMap } from 'rxjs/operators';
 
 export interface Digimon {
   name: string;
@@ -17,7 +20,7 @@ export interface Digimon {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, CommonModule],
+  imports: [RouterOutlet, HttpClientModule, CommonModule,FormsModule],
   templateUrl: './home.component.html',
   providers: [DigimonService],
   styleUrl: './home.component.css'
@@ -29,9 +32,9 @@ export class HomeComponent {
   pageSize = 10;
   currentPage = 1;
   shouldPaginate = true;
+  searchName: string = '';
 
-  constructor(private digimonService: DigimonService) { }
-
+  constructor(private digimonService: DigimonService) {}
 
   ngOnInit() {
     this.loadAllDigimon();
@@ -56,7 +59,11 @@ export class HomeComponent {
     this.filteredDigimonList = [...this.digimonList];
   }
 
-
-
-
-}
+  searchByName(name: string) {
+    if (name) {
+      this.filteredDigimonList = this.digimonList.filter(digimon => digimon.name.toLowerCase().includes(name.toLowerCase()));
+    } else {
+      this.filteredDigimonList = [...this.digimonList];
+    }
+  }
+} 

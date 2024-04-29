@@ -17,6 +17,9 @@ export class DigimonService {
     return this.http.get<any>(this.apiUrl);
   }
 
-
+  getDigimonByName(name: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/name/${name}`);
+  }
+  
   
 }
