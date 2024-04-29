@@ -1,20 +1,53 @@
 .main {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 960px;
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-items: center;
 }
 
 .card {
-    width: 136px;
-    background: #b2c4d3;
-    height: 200px;
-    margin: 10px;
+    text-align: center;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    background: #b2c4d3;
+    border-radius: 20px;
     padding: 10px;
 }
+
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section button {
+    background-color: #b2c4d3;
+    color: white;
+    width: 140px;
+    height: 50px;
+    font-family: 'Inter';
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 20px;
+    margin: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-section button:first-child {
+    background-color: #008CC7; 
+  }
+  
+  .filter-section button:hover {
+    background-color: rgb(98, 113, 128); 
+  }
 
 .card h2 {
     text-align: center;
