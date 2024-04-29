@@ -1,19 +1,23 @@
 <app-header></app-header>
 
-
 <main class="main">
-  <!-- <input type="text" placeholder="Pesquisar..." [(ngModel)]="searchTerm" (input)="filterCards()"> -->
+  <div class="filter-section">
+    <h3>Filtrar por Nível:</h3>
+    <button (click)="filterByLevel('Fresh')">Fresh</button>
+    <button (click)="filterByLevel('In Training')">In Training</button>
+    <button (click)="filterByLevel('Rookie')">Rookie</button>
+    <button (click)="filterByLevel('Champion')">Champion</button>
+    <button (click)="filterByLevel('Ultimate')">Ultimate</button>
+    <button (click)="filterByLevel('Mega')">Mega</button>
+    <button (click)="clearFilter()">Limpar Filtro</button>
+  </div>
 
-  <div class="card" *ngFor="let digimon of digimonList">
+  <div class="card" *ngFor="let digimon of filteredDigimonList">
     <h2>{{ digimon.name }}</h2>
     <img [src]="digimon.img" alt="{{ digimon.name }}">
     <p>{{ digimon.level }}</p>
     <button class="details-button">Ver Detalhes</button>
   </div>
 </main>
-
-
-
-
 
 <router-outlet />

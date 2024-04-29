@@ -18,6 +18,10 @@
 
 .card h2 {
     text-align: center;
+    color: white;
+    font-family: 'Doppio One';
+    font-weight: 400;
+    font-size: 20px;
 }
 
 .card img {

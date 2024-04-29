@@ -27,14 +27,34 @@ export interface Digimon {
 export class AppComponent {
 
   digimonList: Digimon[] = [];
+  filteredDigimonList: Digimon[] = [];
   pageSize = 10;
   currentPage = 1;
+
   constructor(private digimonService: DigimonService) { }
 
+ 
   ngOnInit() {
+    this.loadAllDigimon();
+  }
+
+  loadAllDigimon() {
     this.digimonService.getDigimon().subscribe((data: Digimon[]) => {
       this.digimonList = data;
-      console.log( this.digimonList )
+      this.filteredDigimonList = [...this.digimonList]; 
     });
   }
+
+  filterByLevel(level: string) {
+    if (level === 'All') {
+      this.filteredDigimonList = [...this.digimonList]; 
+    } else {
+      this.filteredDigimonList = this.digimonList.filter(digimon => digimon.level === level);
+    }
+  }
+
+  clearFilter() {
+    this.filteredDigimonList = [...this.digimonList]; 
+  }
+
 }
