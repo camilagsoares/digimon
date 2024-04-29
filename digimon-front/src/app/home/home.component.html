@@ -1,1 +1,21 @@
-<p>home works!</p>
+<main class="main">
+    <div class="filter-section">
+      <button (click)="clearFilter()" class="btn-blue">Todos</button>
+      <button (click)="filterByLevel('Fresh')">Fresh</button>
+      <button (click)="filterByLevel('In Training')">In Training</button>
+      <button (click)="filterByLevel('Rookie')">Rookie</button>
+      <button (click)="filterByLevel('Champion')">Champion</button>
+      <button (click)="filterByLevel('Mega')">Mega</button>
+      <button (click)="filterByLevel('Ultimate')">Ultimate</button>
+  
+    </div>
+  
+    <div class="card-container">
+      <div class="card" *ngFor="let digimon of filteredDigimonList">
+        <h2>{{ digimon.name }}</h2>
+        <img [src]="digimon.img" alt="{{ digimon.name }}">
+        <p>{{ digimon.level }}</p>
+        <button class="details-button">Ver Detalhes</button>
+      </div>
+    </div>
+  </main>
