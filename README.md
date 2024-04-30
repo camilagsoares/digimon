@@ -1,26 +1,27 @@
+# DigimonFront
 
-# Angular Digimon Project
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
 
-Projeto Angular onde exibe uma lista de Digimon, permitindo ao usuário filtrar os Digimon por nível e por nome, visualizar detalhes de cada Digimon em um modal, e interagir com a comunidade por meio de comentários em cada card de Digimon. Além disso, o projeto também apresenta um quiz de perguntas relacionadas aos Digimon.
+## Development server
 
-## Funcionalidades
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Code scaffolding
 
-<hr />
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-* **Lista de Digimon:** Exibe uma lista de Digimon e permite filtrar os Digimon por nível e por nome.
+## Build
 
-* **Detalhes do Digimon:** Ao clicar em um Digimon, abre um modal com detalhes sobre o Digimon selecionado.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-* **Comentários:** Cada card de Digimon é clicável, permitindo ao usuário visualizar e adicionar comentários sobre o Digimon. Os usuários podem editar ou apagar os comentários que eles próprios postaram.
+## Running unit tests
 
-* **Quiz:** Quiz de perguntas relacionadas aos Digimon .
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Running end-to-end tests
 
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-<hr />
+## Further help
 
-
-
-
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
