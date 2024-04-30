@@ -1,0 +1,19 @@
+<div *ngIf="!quizCompleted" class="quiz-container">
+  <h3 class="quiz-title">{{ questions[currentQuestionIndex].question }}</h3>
+  <ul class="options-list">
+    <li *ngFor="let option of questions[currentQuestionIndex].options" class="option-item">
+      <label class="option-label">
+        <input type="radio" name="options" [value]="option" (change)="selectOption(option)">
+        <span class="option-text">{{ option }}</span>
+      </label>
+    </li>
+  </ul>
+  <button (click)="checkAnswer()" [disabled]="selectedOption === ''" class="check-answer-btn">Verificar Resposta</button>
+</div>
+
+  
+  <div *ngIf="quizCompleted" class="quiz-completed">
+    <h3>Quiz Concluído!</h3>
+    <p>Você acertou {{ correctAnswers }} de {{ questions.length }} perguntas.</p>
+    <button (click)="restartQuiz()" class="restart-quiz-btn">Reiniciar Quiz</button>
+  </div>

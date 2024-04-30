@@ -1,0 +1,73 @@
+.quiz-container {
+    background-color: #f5f5f5;
+    width: 100%; /* Change width to percentage for responsiveness */
+    max-width: 600px; /* Set a maximum width */
+    margin: 0 auto; /* Center align */
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Doppio One';
+    padding: 20px; /* Add internal padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.quiz-title {
+    margin-bottom: 20px; /* Add space below title */
+}
+
+.options-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.option-item {
+    margin-bottom: 10px;
+}
+
+.option-label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #d1ecf1;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.option-label:hover {
+    background-color: #bee3e3;
+}
+
+.option-text {
+    margin-left: 5px;
+}
+
+.check-answer-btn,
+.restart-quiz-btn {
+    background-color: #ff991a;
+    font-family: 'Doppio One';
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Add space above the button */
+}
+
+.check-answer-btn:hover,
+.restart-quiz-btn:hover {
+    background-color: #e18616;
+}
+
+.quiz-completed {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    font-family: 'Doppio One';
+}
