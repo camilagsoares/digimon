@@ -104,3 +104,50 @@
         width: 100%;
     }
 }
+
+
+   .search-container {
+    position: relative;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 1000px; 
+  }
+  
+  .search-container input {
+    width: calc(100% - 30px); 
+    height: 40px;
+    border: 1px solid white; 
+    border-radius: 20px; 
+    padding: 5px 10px;
+    font-size: 16px; 
+    color: #EBEBEB; 
+    font-family: 'Inter';
+    background-color: #b2c4d3; 
+    position: relative; 
+  }
+  
+  .search-container input:focus {
+    outline: none; 
+    border-color: white; 
+  }
+  
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+  
+  .white-icon {
+    color: white;
+}
+.white-icon svg {
+    fill: white;
+}
+  
+  ::placeholder {
+    color: #EBEBEB;
+  }
+  

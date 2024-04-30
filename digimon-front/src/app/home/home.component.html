@@ -1,8 +1,19 @@
 <main class="main">
   <div class="filter-section">
-    <div class="search-section">
+    <!-- <div class="search-section">
       <input [(ngModel)]="searchName" (input)="searchByName(searchName)" placeholder="Digite o nome do Digimon">
+    </div> -->
+
+    <div class="search-container">
+
+      <input [(ngModel)]="searchName" (input)="searchByName(searchName)" placeholder="Buscar">
+      <span class="search-icon">
+        <ng-icon name="ionSearchOutline" class="white-icon"></ng-icon>
+      </span>
     </div>
+    
+    
+    
     
     
     <button (click)="clearFilter()" class="btn-blue">Todos</button>

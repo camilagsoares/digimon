@@ -9,6 +9,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { ionSearchOutline } from '@ng-icons/ionicons';
+
 
 export interface Digimon {
   name: string;
@@ -20,8 +23,10 @@ export interface Digimon {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, CommonModule,FormsModule],
+  imports: [RouterOutlet, HttpClientModule, CommonModule,FormsModule,NgIconComponent],
   templateUrl: './home.component.html',
+  viewProviders: [provideIcons({  ionSearchOutline })],
+
   providers: [DigimonService],
   styleUrl: './home.component.css'
 })
