@@ -48,7 +48,7 @@ export class GameComponent {
     setTimeout(() => {
       this.flippedCards.forEach(card => card.flipped = false);
       this.flippedCards = [];
-    }, 3000); // 3000 milissegundos = 3 segundos
+    }, 3000); 
   }
 
   flipCard(index: number) {

@@ -39,4 +39,7 @@ testem.log
 
 # System files
 .DS_Store
-Thumbs.db
+Thumbs.db77
+
+/.angular/cache/17.3.6
+

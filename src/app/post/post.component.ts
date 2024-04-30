@@ -21,7 +21,6 @@ export class PostComponent {
     if (history.state && history.state.data) {
       this.digimon = history.state.data;
 
-      // Carrega os posts do localStorage, se houver
       const savedPosts = localStorage.getItem(this.digimon.name);
       if (savedPosts) {
         this.digimon.posts = JSON.parse(savedPosts);
@@ -33,40 +32,37 @@ export class PostComponent {
 
 
   submitPost() {
-    // Adiciona o post ao digimon atual
+    if (this.postContent.trim() === '') {
+      alert("Não é possível postar um comentário vazio.");
+      return; 
+    }
+  
     if (!this.digimon.posts) {
       this.digimon.posts = [];
     }
+  
     this.digimon.posts.push({ content: this.postContent, newContent: '', editing: false });
-
-    // Salva os posts atualizados no localStorage
+  
     localStorage.setItem(this.digimon.name, JSON.stringify(this.digimon.posts));
-
-    // Limpa o conteúdo do post após a submissão
+  
     this.postContent = '';
   }
 
   removePost(index: number) {
-    // Remove o post pelo índice
     this.digimon.posts.splice(index, 1);
 
-    // Atualiza os posts no localStorage
     localStorage.setItem(this.digimon.name, JSON.stringify(this.digimon.posts));
   }
 
   editPost(index: number) {
-    // Salva o conteúdo original do post antes de editar
     this.digimon.posts[index].newContent = this.digimon.posts[index].content;
-    // Altera o estado de edição para true
     this.digimon.posts[index].editing = true;
   }
 
   savePost(index: number) {
-    // Salva o post editado e altera o estado de edição para false
     this.digimon.posts[index].content = this.digimon.posts[index].newContent;
     this.digimon.posts[index].editing = false;
 
-    // Atualiza os posts no localStorage
     localStorage.setItem(this.digimon.name, JSON.stringify(this.digimon.posts));
   }
 }
