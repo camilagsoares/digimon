@@ -27,7 +27,11 @@ export class LoginComponent {
     }
   }
 
+
   isLogged(): boolean {
-    return this.authService.isLogged();
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem('isLogged') === 'true';
+    }
+    return false;
   }
 }
