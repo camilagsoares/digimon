@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DigimonService } from '../services/digimon.service';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { debounceTime, switchMap } from 'rxjs/operators';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { ionSearchOutline } from '@ng-icons/ionicons';
 import { ionCloseCircleOutline } from '@ng-icons/ionicons'
@@ -17,7 +12,8 @@ export interface Digimon {
   name: string;
   img: string;
   level: string;
-}
+  isMouseOver?: boolean;
+  isFavorite?: boolean;}
 
 
 @Component({
@@ -40,6 +36,7 @@ export class HomeComponent {
   searchName: string = '';
   selectedDigimon: Digimon | null = null;
   selectedDigimonName: string = '';
+  favoriteButtonStates: { [key: string]: boolean } = {};
 
   constructor(private digimonService: DigimonService,private router: Router) {}
 
@@ -89,5 +86,8 @@ export class HomeComponent {
     this.router.navigate(['/digimon', digimon.name], { state: { data: digimon } });
   }
   
-  
+  toggleFavorite(digimon: Digimon) {
+    digimon.isFavorite = !digimon.isFavorite;
+    // Aqui você pode adicionar lógica para armazenar os digimons favoritados
+  }
 } 

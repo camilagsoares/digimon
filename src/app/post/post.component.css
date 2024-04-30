@@ -47,7 +47,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
-  background-color: #007bff;
+  background-color: #008CC7;
   color: #fff;
   font-family: 'Doppio One';
   cursor: pointer;
@@ -55,7 +55,7 @@
 }
 
 .post-section button:hover {
-  background-color: #0056b3;
+  background-color: #016d9c;
 }
 
 .post-section h3 {

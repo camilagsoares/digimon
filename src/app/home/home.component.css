@@ -39,9 +39,9 @@
     margin: 0 auto;
     margin-bottom: 10px;
     border-radius: 20px;
-    width: 200px; /* Define a largura da imagem */
-    height: 200px; /* Define a altura da imagem */
-    object-fit: cover; /* Garante que a imagem cubra toda a área disponível, cortando se necessário */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
 
@@ -71,12 +71,12 @@
 }
 
 .search-container input {
-    width: calc(100% - 50px); 
+    width: calc(100% - 50px);
     height: 40px;
     border: 1px solid white;
     border-radius: 20px;
     padding: 5px 40px 5px 10px;
-        font-size: 16px;
+    font-size: 16px;
     margin-bottom: 20px;
     color: #EBEBEB;
     font-family: 'Inter';
@@ -92,8 +92,8 @@
 
 
 .search-icon {
-    position: absolute; 
-    top: 40%; 
+    position: absolute;
+    top: 40%;
     right: 10px;
     transform: translateY(-50%);
 }
@@ -159,18 +159,11 @@
     justify-content: center;
 }
 
-.filter-buttons {
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1000px;  */
-   
-}
 
 .filter-section button {
     background-color: #b2c4d3;
     color: white;
-    width: 140px; 
+    width: 140px;
     height: 50px;
     font-family: 'Inter';
     cursor: pointer;
@@ -229,12 +222,14 @@
         background-color: transparent;
     }
 }
+
 .modal-image-container {
-    width: 210px; 
-    /* Reduzindo a largura do container da imagem */
+    width: 210px;
+    height: 200px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
+    margin-bottom: -30px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     background-color: #fff;
     position: relative;
@@ -242,37 +237,37 @@
 }
 
 .modal-image {
-    max-width: 60%; /* Alterando o tamanho máximo da imagem para ocupar o máximo possível do container */
-    height: 150px; /* Ajustando a altura máxima da imagem */
-    /* height: auto; */
+    max-width: 80%;
+    height: auto;
 }
 
 .modal-description-container {
     background-color: #fff;
     color: #9C9C9C;
     border-radius: 10px;
-    margin-top: -20px;
+    margin-top: -10px;
     padding: 20px;
     font-size: 20px;
-    width: 350px; 
+    width: 350px;
     font-family: 'Inter';
     text-align: center;
     position: relative;
     z-index: 1;
 
-    p{
-        margin-top: 20px;
+    p {
+        margin-top: 50px;
+        margin-bottom: 10px;
     }
 
- 
+
 }
 
 .modal-description-container span {
     margin-top: 20px;
-    font-size: 14px; 
+    font-size: 14px;
     font-family: 'Inter';
 
-    b{
+    b {
         color: black;
     }
 }
@@ -320,7 +315,7 @@
 }
 
 .card-container .card:hover {
-    background-color: #99aabb; 
+    background-color: #99aabb;
     cursor: pointer;
 }
 

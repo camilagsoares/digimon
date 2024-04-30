@@ -24,14 +24,14 @@
 
   <div class="card-container">
     <div class="card" *ngFor="let digimon of filteredDigimonList">
+
       <div (click)="navigateToDetail(digimon)" class="card-content">
         <h2>{{ digimon.name }}</h2>
         <img [src]="digimon.img" alt="{{ digimon.name }}">
-        
       </div>
       <button class="details-button" (click)="openModal(digimon)">Ver Detalhes</button>
     </div>
-    
+  
   </div>
 
   <div *ngIf="filteredDigimonList.length === 0" class="no-digimon-found">
