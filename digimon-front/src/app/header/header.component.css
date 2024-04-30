@@ -46,7 +46,7 @@ nav a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: #C05621;
+    background-color: #fed441;
     bottom: -5px;
     left: 0;
     transition: width 0.3s ease;
@@ -76,7 +76,7 @@ nav a:hover::after {
 }
 
 span {
-    color: #ED8936;
+    color: #fed441;
 }
 
 .title {
