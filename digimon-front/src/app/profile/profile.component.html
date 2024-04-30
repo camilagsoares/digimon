@@ -4,7 +4,7 @@
     <h2>Informações do Usuário</h2>
     <p>Nome: {{ usuario.nome }}</p>
     <p>Email: {{ usuario.email }}</p>
-    <p><strong>Usuário desde:</strong> <span> {{ usuario?.dataCriacao }}</span></p>
-  
+    <p><strong> Usuário desde:</strong> <span> {{ usuario?.dataCriacao | date: 'dd-MM-yyyy \'desde às \' HH:mm' }}</span></p>
+
   </div>
 </div>
