@@ -1,50 +1,65 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
+  margin-top: 50px;
 }
 
 .digimon-container {
-  flex: 1;
   margin-right: 20px;
 }
 
 .post-section {
-  flex: 1;
-  margin-left: 20px;
+  width: 400px;
 }
 
 .post-section h2 {
-  margin-top: 0;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .post-section img {
   max-width: 100%;
-  height: auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
-.post-section form textarea {
+.post-section form {
+  margin-bottom: 20px;
+}
+
+.post-section textarea {
   width: 100%;
+  height: 100px;
+  padding: 10px;
   margin-bottom: 10px;
-  resize: vertical;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-.post-section form button {
-  display: block;
-  margin-top: 10px;
+.post-section button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.post-section button:hover {
+  background-color: #0056b3;
 }
 
 .post-section h3 {
-  margin-top: 20px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .post-section div textarea {
-  width: calc(100% - 80px); /* Adjust as needed */
   margin-bottom: 10px;
-  resize: vertical;
 }
 
 .post-section div button {
   margin-top: 10px;
-  margin-right: 10px;
 }

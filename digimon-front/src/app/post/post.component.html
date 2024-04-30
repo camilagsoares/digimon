@@ -11,9 +11,11 @@
     <div *ngIf="digimon.posts && digimon.posts.length > 0">
       <h3>Posts:</h3>
       <div *ngFor="let post of digimon.posts; let i = index">
-        <textarea [(ngModel)]="post.content"></textarea>
+        <textarea *ngIf="!post.editing" [(ngModel)]="post.content" disabled></textarea>
+        <textarea *ngIf="post.editing" [(ngModel)]="post.newContent"></textarea>
         <button (click)="removePost(i)">Remover</button>
-        <button (click)="editPost(i, post.content)">Salvar</button>
+        <button *ngIf="!post.editing" (click)="editPost(i)">Editar</button>
+        <button *ngIf="post.editing" (click)="savePost(i)">Salvar</button>
       </div>
     </div>
   </div>
