@@ -27,12 +27,18 @@ export class AuthService {
     return this.usuario;
   }
 
+  
   logout(): void {
-    localStorage.removeItem('isLogged');
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem('isLogged');
+    }
   }
 
   isLogged(): boolean {
-    return localStorage.getItem('isLogged') === 'true';
+    if (typeof localStorage !== 'undefined') {
+      return localStorage.getItem('isLogged') === 'true';
+    }
+    return false;
   }
 
   getUsuarioFromLocalStorage(): any {
