@@ -1,3 +1,6 @@
+<img [src]="'../../assets/Logo.png'" alt="Logo Digimon" class="imgLogo">
+
+
 <main class="main">
   <div class="filter-section">
     <div class="search-container">
@@ -7,13 +10,15 @@
       </span>
     </div>
     
-    <button (click)="clearFilter()" class="btn-blue">Todos</button>
-    <button (click)="filterByLevel('Fresh')">Fresh</button>
-    <button (click)="filterByLevel('In Training')">In Training</button>
-    <button (click)="filterByLevel('Rookie')">Rookie</button>
-    <button (click)="filterByLevel('Champion')">Champion</button>
-    <button (click)="filterByLevel('Mega')">Mega</button>
-    <button (click)="filterByLevel('Ultimate')">Ultimate</button>
+    <div class="filter-buttons">
+      <button (click)="clearFilter()" class="btn-blue">Todos</button>
+      <button (click)="filterByLevel('Fresh')">Fresh</button>
+      <button (click)="filterByLevel('In Training')">In Training</button>
+      <button (click)="filterByLevel('Rookie')">Rookie</button>
+      <button (click)="filterByLevel('Champion')">Champion</button>
+      <button (click)="filterByLevel('Mega')">Mega</button>
+      <button (click)="filterByLevel('Ultimate')">Ultimate</button>
+    </div>
   </div>
 
   <div class="card-container">
