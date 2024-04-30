@@ -25,7 +25,6 @@
     <div class="card" *ngFor="let digimon of filteredDigimonList">
       <h2>{{ digimon.name }}</h2>
       <img [src]="digimon.img" alt="{{ digimon.name }}">
-      <p>{{ digimon.level }}</p>
       <!-- <button class="details-button">Ver Detalhes</button> -->
       <button class="details-button" (click)="openModal(digimon)">Ver Detalhes</button>
 
@@ -51,6 +50,7 @@
     </div>
     <div class="modal-description-container">
       <p class="list-item"> {{ selectedDigimon.level }}</p>
+      <!-- <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nulla eros, pulvinar id magna sed, sagittis tempus elit. Nulla lacinia laoreet  magna quis maximus. Morbi non arcu ullamcorper justo commodo feugiat a  id tellus. Ut id scelerisque urna. In eu nunc venenatis, lobortis ipsum vitae, sagittis quam.</p> -->
     </div>
   </div>
 </main>
