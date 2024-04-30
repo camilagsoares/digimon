@@ -9,7 +9,7 @@
         <ng-icon name="ionSearchOutline" class="white-icon"></ng-icon>
       </span>
     </div>
-    
+
     <div class="filter-buttons">
       <button (click)="clearFilter()" class="btn-blue">Todos</button>
       <button (click)="filterByLevel('Fresh')">Fresh</button>
@@ -38,9 +38,19 @@
 
   <div class="modal-backdrop" *ngIf="selectedDigimon" (click)="closeModal()"></div>
   <div class="modal" *ngIf="selectedDigimon">
-    <h2>{{ selectedDigimon.name }}</h2>
-    <img [src]="selectedDigimon.img" alt="{{ selectedDigimon.name }}">
-    <p>{{ selectedDigimon.level }}</p>
-    <button (click)="closeModal()">Fechar</button>
+    <div class="modal-header">
+      <h4>{{ selectedDigimon.name }}</h4>
+      <button (click)="closeModal()">
+        <ng-icon name="ionCloseCircleOutline" class="icon-styles"></ng-icon>
+
+      </button>
+    </div>
+
+    <div class="modal-image-container">
+      <img class="modal-image" [src]="selectedDigimon.img" alt="{{ selectedDigimon.name }}">
+    </div>
+    <div class="modal-description-container">
+      <p class="list-item"> {{ selectedDigimon.level }}</p>
+    </div>
   </div>
 </main>

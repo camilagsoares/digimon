@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { ionSearchOutline } from '@ng-icons/ionicons';
-
+import { ionCloseCircleOutline } from '@ng-icons/ionicons'
 
 export interface Digimon {
   name: string;
@@ -25,7 +25,7 @@ export interface Digimon {
   standalone: true,
   imports: [RouterOutlet, HttpClientModule, CommonModule,FormsModule,NgIconComponent],
   templateUrl: './home.component.html',
-  viewProviders: [provideIcons({  ionSearchOutline })],
+  viewProviders: [provideIcons({  ionSearchOutline,ionCloseCircleOutline })],
 
   providers: [DigimonService],
   styleUrl: './home.component.css'
