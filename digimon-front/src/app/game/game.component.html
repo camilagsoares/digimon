@@ -1,0 +1,10 @@
+<p>game works!</p>
+<div class="memory-game">
+    <div class="cards-grid">
+      <div class="card" *ngFor="let digimon of digimons; let i = index" (click)="flipCard(i)">
+        <img *ngIf="!digimon.flipped && !digimon.matched" src="https://upload.wikimedia.org/wikipedia/pt/d/d9/Adventure.jpg" alt="Cover">
+        <img *ngIf="digimon.flipped" [src]="digimon.img" alt="{{ digimon.name }}">
+      </div>
+    </div>
+  </div>
+  
