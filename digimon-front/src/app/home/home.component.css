@@ -39,15 +39,15 @@
     border-radius: 20px;
     margin: 20px;
     transition: background-color 0.3s ease;
-  }
-  
-  .filter-section button:first-child {
-    background-color: #008CC7; 
-  }
-  
-  .filter-section button:hover {
-    background-color: rgb(98, 113, 128); 
-  }
+}
+
+.filter-section button:first-child {
+    background-color: #008CC7;
+}
+
+.filter-section button:hover {
+    background-color: rgb(98, 113, 128);
+}
 
 .card h2 {
     text-align: center;
@@ -106,48 +106,53 @@
 }
 
 
-   .search-container {
+.search-container {
     position: relative;
     /* display: flex;
     align-items: center;
     justify-content: center; */
-    width: 1000px; 
-  }
-  
-  .search-container input {
-    width: calc(100% - 30px); 
+    width: 1000px;
+}
+
+.search-container input {
+    width: calc(100% - 30px);
     height: 40px;
-    border: 1px solid white; 
-    border-radius: 20px; 
+    border: 1px solid white;
+    border-radius: 20px;
     padding: 5px 10px;
-    font-size: 16px; 
-    color: #EBEBEB; 
+    font-size: 16px;
+    color: #EBEBEB;
     font-family: 'Inter';
-    background-color: #b2c4d3; 
-    position: relative; 
-  }
-  
-  .search-container input:focus {
-    outline: none; 
-    border-color: white; 
-  }
-  
-  
-  .search-icon {
+    background-color: #b2c4d3;
+    position: relative;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: white;
+}
+
+
+.search-icon {
     position: absolute;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-  }
-  
-  .white-icon {
+}
+
+.white-icon {
     color: white;
 }
+
 .white-icon svg {
     fill: white;
 }
-  
-  ::placeholder {
+
+::placeholder {
     color: #EBEBEB;
-  }
-  
+}
+
+.no-digimon-found {
+    font-family: 'Doppio One';
+    font-weight: 600;
+}

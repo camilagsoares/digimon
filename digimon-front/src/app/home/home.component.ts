@@ -70,5 +70,8 @@ export class HomeComponent {
     } else {
       this.filteredDigimonList = [...this.digimonList];
     }
+
+    this.shouldPaginate = this.filteredDigimonList.length > 0;
+
   }
 } 
