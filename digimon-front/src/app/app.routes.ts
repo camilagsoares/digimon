@@ -11,7 +11,10 @@ export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'registro', component: RegisterComponent },
-  { path: 'post', component: PostComponent },
+  { path: 'digimon/:name', component: PostComponent },
+
+  // { path: 'post', component: PostComponent },
+
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'quiz', component: QuizComponent },
@@ -20,7 +23,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),],
 
 
 })

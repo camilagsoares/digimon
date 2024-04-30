@@ -49,7 +49,7 @@
     display: block;
     margin: 0 auto;
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px 40px;
     background-color: #008CC7;
     color: #fff;
     border: none;
@@ -65,20 +65,18 @@
 
 
 .search-container {
+    width: calc(100% - 430px);
     position: relative;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    width: 1000px;
 }
 
 .search-container input {
-    width: calc(100% - 30px);
+    width: calc(100% - 50px); 
     height: 40px;
     border: 1px solid white;
     border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 16px;
+    padding: 5px 40px 5px 10px;
+        font-size: 16px;
+    margin-bottom: 20px;
     color: #EBEBEB;
     font-family: 'Inter';
     background-color: #b2c4d3;
@@ -88,14 +86,19 @@
 .search-container input:focus {
     outline: none;
     border-color: white;
+
 }
 
 
 .search-icon {
-    position: absolute;
-    top: 50%;
-    right: 20px;
+    position: absolute; 
+    top: 40%; 
+    right: 10px;
     transform: translateY(-50%);
+}
+
+.search-input::placeholder {
+    padding-left: 15px;
 }
 
 .white-icon {
@@ -145,9 +148,7 @@
 }
 
 
-.widthFilter {
-    width: 920px !important;
-}
+
 
 .filter-section {
     margin-bottom: 20px;
@@ -158,16 +159,17 @@
 }
 
 .filter-buttons {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1000px;
+    max-width: 1000px;  */
+   
 }
 
 .filter-section button {
     background-color: #b2c4d3;
     color: white;
-    width: 110px;
+    width: 140px; 
     height: 50px;
     font-family: 'Inter';
     cursor: pointer;
@@ -175,6 +177,7 @@
     border-radius: 20px;
     margin: 10px;
     transition: background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 .filter-section button:first-child {
@@ -311,4 +314,13 @@
     border-radius: 50%;
     background-color: #008CC7;
     vertical-align: middle;
+}
+
+.card-container .card:hover {
+    background-color: #99aabb; /* Altere para a cor desejada */
+    cursor: pointer;
+}
+
+.card-container .card {
+    transition: background-color 0.3s ease;
 }

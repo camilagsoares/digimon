@@ -1,40 +1,20 @@
-<p>post works!</p>
-<div class="post-form">
-    <h2>Novo Post</h2>
-    <form (ngSubmit)="onSubmit()">
-      <textarea [(ngModel)]="newPost" placeholder="Escreva seu post" [ngModelOptions]="{ standalone: true }"></textarea>
+<div class="container">
+  <div class="digimon-container">
+  </div>
+  <div class="post-section">
+    <h2>Poste seu comentário sobre {{ digimon.name }}</h2>
+    <img [src]="digimon.img" alt="{{ digimon.name }}">
+    <form (ngSubmit)="submitPost()">
+      <textarea [(ngModel)]="postContent" name="postContent" placeholder="Escreva o seu post..."></textarea>
       <button type="submit">Postar</button>
     </form>
-  </div>
-  
-  <div class="post-list">
-    <h2>Posts</h2>
-    <div *ngFor="let post of posts; let i = index" class="post-item">
-      <div class="post-item-header">
-        <img src="https://t3.ftcdn.net/jpg/03/58/90/78/360_F_358907879_Vdu96gF4XVhjCZxN2kCG0THTsSQi8IhT.jpg"
-          alt="Imagem do autor">
-        <span class="post-author">Nome do Autor</span>
-        <small class="post-date">Criado em: {{ post.createdAt | date:'medium' }}</small>
-      </div>
-     
-      <div class="post-item-content">
-        <p *ngIf="!post.editing">{{ post.content }}</p>
-        <textarea *ngIf="post.editing" [(ngModel)]="post.content" class="edit-field"></textarea>
-      </div>
-      <div class="post-item-actions">
+    <div *ngIf="digimon.posts && digimon.posts.length > 0">
+      <h3>Posts:</h3>
+      <div *ngFor="let post of digimon.posts; let i = index">
+        <textarea [(ngModel)]="post.content"></textarea>
         <button (click)="removePost(i)">Remover</button>
-        <button *ngIf="!post.editing" (click)="editPost(i)">Editar</button>
-        <button *ngIf="post.editing" (click)="savePost(i)">Salvar</button>
-        <button (click)="toggleLike(i)">
-          <span *ngIf="!post.liked">
-            <!-- <ng-icon name="bootstrapHeart"></ng-icon> -->
-          </span>
-          <span *ngIf="post.liked">
-            <!-- <ng-icon name="bootstrapHeartFill"></ng-icon> -->
-          </span>
-        </button>
+        <button (click)="editPost(i, post.content)">Salvar</button>
       </div>
-      
-      
     </div>
   </div>
+</div>
