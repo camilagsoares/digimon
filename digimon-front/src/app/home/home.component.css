@@ -224,21 +224,22 @@
         background-color: transparent;
     }
 }
-
 .modal-image-container {
-    width: 300px;
+    width: 210px; 
+    /* Reduzindo a largura do container da imagem */
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     background-color: #fff;
     position: relative;
     z-index: 3;
 }
 
 .modal-image {
-    max-width: 90%;
-    height: auto;
+    max-width: 60%; /* Alterando o tamanho máximo da imagem para ocupar o máximo possível do container */
+    height: 150px; /* Ajustando a altura máxima da imagem */
+    /* height: auto; */
 }
 
 .modal-description-container {
@@ -248,13 +249,27 @@
     margin-top: -20px;
     padding: 20px;
     font-size: 20px;
-    width: 300px;
+    width: 350px; /* Aumentando a largura do container da descrição */
     font-family: 'Inter';
     text-align: center;
     position: relative;
     z-index: 1;
 
+    p{
+        margin-top: 20px;
+    }
 
+ 
+}
+
+.modal-description-container span {
+    margin-top: 20px;
+    font-size: 14px; 
+    font-family: 'Inter';
+
+    b{
+        color: black;
+    }
 }
 
 
