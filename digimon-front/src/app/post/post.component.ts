@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgIconComponent } from '@ng-icons/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -12,62 +13,52 @@ import { NgIconComponent } from '@ng-icons/core';
   styleUrl: './post.component.css'
 })
 export class PostComponent {
-  newPost: string = '';
-  posts: { content: string, createdAt: Date, liked: boolean ,editing?: boolean }[] = [];
-  editingIndex: number | null = null;
+  digimon: any;
+  postContent: string = '';
+  constructor(private route: ActivatedRoute,private router: Router) { }
 
-  constructor() { }
-
-  onSubmit() {
-    if (this.newPost.trim() !== '') {
-      const post = {
-        content: this.newPost,
-        createdAt: new Date(),
-        liked: false
-      };
-
-      if (this.editingIndex !== null) {
-        // Estamos editando um post existente
-        this.posts[this.editingIndex] = post;
-        this.editingIndex = null;
-      } else {
-        // Estamos criando um novo post
-        this.posts.push(post);
-      }
-
-      localStorage.setItem('posts', JSON.stringify(this.posts));
-      this.newPost = '';
-    }
-  }
-
-  ngOnInit() {
-    if (typeof localStorage !== 'undefined') {
-      const storedPosts = localStorage.getItem('posts');
-      if (storedPosts) {
-        this.posts = JSON.parse(storedPosts);
+  ngOnInit(): void {
+    if (history.state && history.state.data) {
+      this.digimon = history.state.data;
+  
+      // Carrega os posts do localStorage, se houver
+      const savedPosts = localStorage.getItem(this.digimon.name);
+      if (savedPosts) {
+        this.digimon.posts = JSON.parse(savedPosts);
       }
     } else {
-      console.error('localStorage is not available.');
+      console.error("Os dados do histórico não estão disponíveis.");
     }
+  }
+  
+
+  submitPost() {
+    // Adiciona o post ao digimon atual
+    if (!this.digimon.posts) {
+      this.digimon.posts = [];
+    }
+    this.digimon.posts.push({ content: this.postContent });
+
+    // Salva os posts atualizados no localStorage
+    localStorage.setItem(this.digimon.name, JSON.stringify(this.digimon.posts));
+
+    // Limpa o conteúdo do post após a submissão
+    this.postContent = '';
   }
 
   removePost(index: number) {
-    this.posts.splice(index, 1);
-    localStorage.setItem('posts', JSON.stringify(this.posts));
+    // Remove o post pelo índice
+    this.digimon.posts.splice(index, 1);
+
+    // Atualiza os posts no localStorage
+    localStorage.setItem(this.digimon.name, JSON.stringify(this.digimon.posts));
   }
 
-  toggleLike(index: number) {
-    this.posts[index].liked = !this.posts[index].liked;
+  editPost(index: number, newContent: string) {
+    // Edita o post pelo índice
+    this.digimon.posts[index].content = newContent;
+
+    // Atualiza os posts no localStorage
+    localStorage.setItem(this.digimon.name, JSON.stringify(this.digimon.posts));
   }
-
-  editPost(index: number) {
-    this.posts[index].editing = true;
-  }
-
-  savePost(index: number) {
-    this.posts[index].editing = false;
-    localStorage.setItem('posts', JSON.stringify(this.posts));
-  }
-
-
 }

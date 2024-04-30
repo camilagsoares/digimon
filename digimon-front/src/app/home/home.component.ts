@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,8 +39,9 @@ export class HomeComponent {
   shouldPaginate = true;
   searchName: string = '';
   selectedDigimon: Digimon | null = null;
+  selectedDigimonName: string = '';
 
-  constructor(private digimonService: DigimonService) {}
+  constructor(private digimonService: DigimonService,private router: Router) {}
 
   ngOnInit() {
     this.loadAllDigimon();
@@ -83,4 +84,10 @@ export class HomeComponent {
   closeModal() {
     this.selectedDigimon = null;
   }
+
+  navigateToDetail(digimon: Digimon) {
+    this.router.navigate(['/digimon', digimon.name], { state: { data: digimon } });
+  }
+  
+  
 } 

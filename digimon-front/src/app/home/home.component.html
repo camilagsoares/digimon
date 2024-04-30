@@ -4,11 +4,12 @@
 <main class="main">
   <div class="filter-section">
     <div class="search-container">
-      <input [(ngModel)]="searchName" (input)="searchByName(searchName)" placeholder="Buscar">
+      <input [(ngModel)]="searchName" (input)="searchByName(searchName)" placeholder="Buscar" class="search-input">
       <span class="search-icon">
-        <ng-icon name="ionSearchOutline" class="white-icon"></ng-icon>
+          <ng-icon name="ionSearchOutline" class="white-icon"></ng-icon>
       </span>
-    </div>
+  </div>
+  
 
     <div class="filter-buttons">
       <button (click)="clearFilter()" class="btn-blue">Todos</button>
@@ -23,12 +24,14 @@
 
   <div class="card-container">
     <div class="card" *ngFor="let digimon of filteredDigimonList">
-      <h2>{{ digimon.name }}</h2>
-      <img [src]="digimon.img" alt="{{ digimon.name }}">
-      <!-- <button class="details-button">Ver Detalhes</button> -->
+      <div (click)="navigateToDetail(digimon)" class="card-content">
+        <h2>{{ digimon.name }}</h2>
+        <img [src]="digimon.img" alt="{{ digimon.name }}">
+        
+      </div>
       <button class="details-button" (click)="openModal(digimon)">Ver Detalhes</button>
-
     </div>
+    
   </div>
 
   <div *ngIf="filteredDigimonList.length === 0" class="no-digimon-found">
