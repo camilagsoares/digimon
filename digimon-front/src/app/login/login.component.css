@@ -1,0 +1,173 @@
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    border-radius: 5px;
+    background-color: #1f2029;
+    margin-top: 60px;
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    form {
+      margin: 0 20px;
+      margin-top: 30px;
+    }
+  
+  }
+  
+  form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    height: 60px;
+  }
+  
+  h2 {
+    color: white;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  
+  form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 24px;
+    background-color: #181b23;
+    color: white;
+    border: 1px solid rgb(71, 70, 70);
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    height: 44px;
+    transition: border-color 0.3s ease;
+    font-size: 15px;
+  }
+  
+  form input:focus {
+    border-color: #C05621;
+  }
+  
+  form input:active {
+    border-color: #C05621;
+  }
+  
+  /* 
+  form input {
+    width: 100%;
+    padding: 16px; 
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    height: 45px;
+  } */
+  
+  form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ED8936;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    height: 50px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .password-input-container {
+    position: relative;
+  }
+  
+  .password-input-container input {
+    width: 100%;
+    padding-right: 40px;
+  }
+  
+  .password-input-container .toggle-password {
+    position: absolute;
+    top: 35%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    border: none;
+  }
+  
+  form button:hover {
+    background-color: #C05621;
+  }
+  
+  
+  
+  @media screen and (max-width: 768px) {
+    form h2 {
+      height: auto;
+    }
+  }
+  
+  
+  .toast {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 40px 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .toast.active {
+    opacity: 1;
+  }
+  
+  .toast-icon {
+    margin-right: 10px;
+    font-size: 20px;
+    color: greenyellow;
+  }
+  
+  .toast-icon-error {
+    margin-right: 10px;
+    font-size: 20px;
+    color: rgb(224, 32, 32);
+  }
+  
+  .toast-message {
+    font-size: 14px;
+  }
+  
+  .toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    /* background-color: #fff; */
+    border-radius: 0 0 5px 5px;
+    transform-origin: left;
+    transform: scaleX(1);
+    transition: transform 5s linear;
+  }
+  
+  .toast.success .toast-progress {
+    background-color: greenyellow;
+  }
+  
+  .toast.error-toast .toast-progress {
+    background-color: rgb(224, 32, 32);
+  }

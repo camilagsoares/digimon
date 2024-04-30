@@ -38,6 +38,7 @@ export class HomeComponent {
   currentPage = 1;
   shouldPaginate = true;
   searchName: string = '';
+  selectedDigimon: Digimon | null = null;
 
   constructor(private digimonService: DigimonService) {}
 
@@ -73,5 +74,13 @@ export class HomeComponent {
 
     this.shouldPaginate = this.filteredDigimonList.length > 0;
 
+  }
+
+  openModal(digimon: Digimon) {
+    this.selectedDigimon = digimon;
+  }
+
+  closeModal() {
+    this.selectedDigimon = null;
   }
 } 

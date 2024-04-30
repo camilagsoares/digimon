@@ -26,11 +26,21 @@
       <h2>{{ digimon.name }}</h2>
       <img [src]="digimon.img" alt="{{ digimon.name }}">
       <p>{{ digimon.level }}</p>
-      <button class="details-button">Ver Detalhes</button>
+      <!-- <button class="details-button">Ver Detalhes</button> -->
+      <button class="details-button" (click)="openModal(digimon)">Ver Detalhes</button>
+
     </div>
   </div>
 
   <div *ngIf="filteredDigimonList.length === 0" class="no-digimon-found">
     Nenhum Digimon encontrado.
+  </div>
+
+  <div class="modal-backdrop" *ngIf="selectedDigimon" (click)="closeModal()"></div>
+  <div class="modal" *ngIf="selectedDigimon">
+    <h2>{{ selectedDigimon.name }}</h2>
+    <img [src]="selectedDigimon.img" alt="{{ selectedDigimon.name }}">
+    <p>{{ selectedDigimon.level }}</p>
+    <button (click)="closeModal()">Fechar</button>
   </div>
 </main>
