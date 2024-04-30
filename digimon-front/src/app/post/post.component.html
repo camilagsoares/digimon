@@ -1,9 +1,10 @@
 <div class="container">
   <div class="digimon-container">
+    <h2>{{ digimon.name }}</h2>
+    <img [src]="digimon.img" alt="{{ digimon.name }}">
   </div>
   <div class="post-section">
     <h2>Poste seu comentário sobre {{ digimon.name }}</h2>
-    <img [src]="digimon.img" alt="{{ digimon.name }}">
     <form (ngSubmit)="submitPost()">
       <textarea [(ngModel)]="postContent" name="postContent" placeholder="Escreva o seu post..."></textarea>
       <button type="submit">Postar</button>
@@ -11,11 +12,16 @@
     <div *ngIf="digimon.posts && digimon.posts.length > 0">
       <h3>Posts:</h3>
       <div *ngFor="let post of digimon.posts; let i = index">
-        <textarea *ngIf="!post.editing" [(ngModel)]="post.content" disabled></textarea>
-        <textarea *ngIf="post.editing" [(ngModel)]="post.newContent"></textarea>
-        <button (click)="removePost(i)">Remover</button>
-        <button *ngIf="!post.editing" (click)="editPost(i)">Editar</button>
-        <button *ngIf="post.editing" (click)="savePost(i)">Salvar</button>
+        <div class="post">
+          <p *ngIf="!post.editing">{{ post.content }}</p>
+          <textarea *ngIf="post.editing" [(ngModel)]="post.newContent"></textarea>
+          <div>
+            <button (click)="removePost(i)">Remover</button>
+            <button *ngIf="!post.editing" (click)="editPost(i)" [ngClass]="{'edit-button': true, 'save-button': false}">Editar</button>
+            <button *ngIf="post.editing" (click)="savePost(i)" [ngClass]="{'edit-button': false, 'save-button': true}">Salvar</button>
+            
+          </div>
+        </div>
       </div>
     </div>
   </div>

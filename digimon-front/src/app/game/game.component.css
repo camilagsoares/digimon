@@ -1,0 +1,48 @@
+/* Estilos para desktop */
+.memory-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Adicione um espaçamento ao redor do jogo */
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px; /* Espaçamento entre as cartas */
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.matched {
+    opacity: 0;
+}
+
+/* Estilos para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 5px; /* Espaçamento entre as cartas */
+    }
+}
