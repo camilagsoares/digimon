@@ -23,6 +23,7 @@ export class GameComponent {
   digimons: Digimon[] = [];
   flippedCards: Digimon[] = [];
   matchedCards: Digimon[] = [];
+  isLoading: boolean = true;
 
   constructor(private http: HttpClient) { }
 
@@ -32,11 +33,14 @@ export class GameComponent {
 
   async loadDigimons() {
     try {
+      this.isLoading = true;
       const data: any = await this.http.get(this.apiUrl).toPromise();
       const digimonData: any[] = data.map((digimon: any) => ({ name: digimon.name, img: digimon.img, flipped: false, matched: false }));
       this.digimons = this.shuffle([...digimonData, ...digimonData]);
     } catch (error) {
       console.error('Erro ao buscar Digimons:', error);
+    } finally {
+      this.isLoading = false; 
     }
   }
 

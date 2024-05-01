@@ -31,8 +31,8 @@ export class HomeComponent {
 
   digimonList: Digimon[] = [];
   filteredDigimonList: Digimon[] = [];
-  pageSize = 10;
-  currentPage = 1;
+  // pageSize = 10;
+  // currentPage = 1;
   shouldPaginate = true;
   searchName: string = '';
   selectedDigimon: Digimon | null = null;
@@ -43,6 +43,7 @@ export class HomeComponent {
 
   ngOnInit() {
     this.loadAllDigimon();
+    this.loadFavoritesFromStorage(); 
   }
 
   loadAllDigimon() {
@@ -72,10 +73,9 @@ export class HomeComponent {
     }
   
     if (this.filteredDigimonList.length === 0 && name) {
-
-      this.shouldPaginate = false; 
+      // this.shouldPaginate = false; 
     } else {
-      this.shouldPaginate = true;
+      // this.shouldPaginate = true;
     }
   }
   
@@ -92,8 +92,31 @@ export class HomeComponent {
     this.router.navigate(['/digimon', digimon.name], { state: { data: digimon } });
   }
   
-  // toggleFavorite(digimon: Digimon) {
-  //   digimon.isFavorite = !digimon.isFavorite;
-    
-  // }
-} 
+  toggleFavorite(digimon: Digimon) {
+    digimon.isFavorite = !digimon.isFavorite;
+    this.saveFavoritesToStorage();
+  }
+
+  saveFavoritesToStorage() {
+    const favorites = this.digimonList.filter(digimon => digimon.isFavorite);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+
+  loadFavoritesFromStorage() {
+    if (typeof localStorage !== 'undefined') {
+      const favoritesData = localStorage.getItem('favorites');
+      if (favoritesData) {
+        const favorites: Digimon[] = JSON.parse(favoritesData);
+        for (const favorite of favorites) {
+          const existingDigimon = this.digimonList.find(digimon => digimon.name === favorite.name);
+          if (existingDigimon) {
+            existingDigimon.isFavorite = true;
+          }
+        }
+      }
+    } else {
+      console.log('localStorage is not available.');
+    }
+  }
+  
+}
