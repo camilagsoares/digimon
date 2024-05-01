@@ -33,7 +33,7 @@ export class HomeComponent {
   filteredDigimonList: Digimon[] = [];
   // pageSize = 10;
   // currentPage = 1;
-  shouldPaginate = true;
+  // shouldPaginate = true;
   searchName: string = '';
   selectedDigimon: Digimon | null = null;
   selectedDigimonName: string = '';

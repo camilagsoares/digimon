@@ -8,12 +8,13 @@
       </label>
     </li>
   </ul>
-  <button (click)="checkAnswer()" [disabled]="selectedOption === ''" class="check-answer-btn">Verificar Resposta</button>
+  <button (click)="checkAnswer()" [disabled]="selectedOption === ''" class="check-answer-btn">Verificar
+    Resposta</button>
 </div>
 
-  
-  <div *ngIf="quizCompleted" class="quiz-completed">
-    <h3>Quiz Concluído!</h3>
-    <p>Você acertou {{ correctAnswers }} de {{ questions.length }} perguntas.</p>
-    <button (click)="restartQuiz()" class="restart-quiz-btn">Reiniciar Quiz</button>
-  </div>
+
+<div *ngIf="quizCompleted" class="quiz-completed">
+  <h3>Quiz Concluído!</h3>
+  <p>Você acertou {{ correctAnswers }} de {{ questions.length }} perguntas.</p>
+  <button (click)="restartQuiz()" class="restart-quiz-btn">Reiniciar Quiz</button>
+</div>
