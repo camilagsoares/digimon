@@ -25,7 +25,7 @@ export interface Digimon {
   templateUrl: './home.component.html',
   viewProviders: [provideIcons({  ionSearchOutline,ionCloseCircleOutline })],
   providers: [DigimonService],
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css', './styles/card.css', './styles/search.css']
 })
 export class HomeComponent {
 

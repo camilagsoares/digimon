@@ -1,0 +1,117 @@
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin: 0 200px;
+    margin-bottom: 20px;
+}
+
+.card {
+    text-align: center;
+    border: 1px solid white;
+    background: #b2c4d3;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+
+.card h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-family: 'Doppio One';
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.card img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+.card .details-button {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 40px;
+    background-color: #008CC7;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Dosis';
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.card .details-button:hover {
+    background-color: #037aac;
+}
+
+.card .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card .favorite-button {
+    padding: 10px  4px;
+    background-color: #FFD700;
+    color: #000; 
+    border: none;
+    border-radius: 20px;
+    font-family: 'Dosis';
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .card .favorite-button:hover {
+    background-color: #FFC72C; 
+  }
+  
+
+  
+@media screen and (max-width: 992px) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        margin: 0;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .search-container {
+        width: calc(100% - 20px);
+    }
+}
+
+
+@media screen and (min-width: 993px) and (max-width: 1299px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin: 0 50px;
+    }
+}
