@@ -166,6 +166,13 @@
     }
 }
 
+@media screen and (min-width: 993px) and (max-width: 1299px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin: 0 50px;
+    }
+}
+
 
 .filter-section {
     margin-bottom: 20px;
@@ -224,8 +231,8 @@
     background-color: #ebebeb;
     padding: 20px;
     border-radius: 4px;
-    width: 80%;
-    max-width: 500px;
+    width: 60%;
+    max-width: 390px;
     z-index: 1000;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -304,6 +311,7 @@
 .modal-header {
     width: 100%;
     display: flex;
+    margin-bottom: 7px;
     justify-content: space-between;
 
     h4 {
