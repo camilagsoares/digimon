@@ -1,0 +1,16 @@
+<div class="favorites-container">
+    <h1 class="favorites-title">Meus favoritos</h1>
+    <div class="favorites-grid" *ngIf="favoriteDigimons.length > 0; else noFavoritesMessage">
+      <div class="favorite-card" *ngFor="let digimon of favoriteDigimons">
+        <h2>{{ digimon.name }}</h2>
+        <img [src]="digimon.img" alt="{{ digimon.name }}">
+        <p>{{ digimon.level }}</p>
+        <button (click)="removeFavorite(digimon)" class="remove-button">Remover</button>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noFavoritesMessage>
+    <p>Nenhum favorito adicionado, volte a tela inicial para adicionar favoritos</p>
+  </ng-template>
+  

@@ -12,11 +12,5 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   constructor(private router: Router) { }
-
-  isLogged(): boolean {
-    if (typeof localStorage !== 'undefined') {
-      return localStorage.getItem('isLogged') === 'true';
-    }
-    return false;
-  }
+  
 }

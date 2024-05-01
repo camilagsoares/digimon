@@ -6,10 +6,10 @@
     <div class="search-container">
       <input [(ngModel)]="searchName" (input)="searchByName(searchName)" placeholder="Buscar" class="search-input">
       <span class="search-icon">
-          <ng-icon name="ionSearchOutline" class="white-icon"></ng-icon>
+        <ng-icon name="ionSearchOutline" class="white-icon"></ng-icon>
       </span>
-  </div>
-  
+    </div>
+
 
     <div class="filter-buttons">
       <button (click)="clearFilter()" class="btn-blue">Todos</button>
@@ -29,14 +29,23 @@
         <h2>{{ digimon.name }}</h2>
         <img [src]="digimon.img" alt="{{ digimon.name }}">
       </div>
-      <button class="details-button" (click)="openModal(digimon)">Ver Detalhes</button>
+
+      <div class="button-container">
+        <button class="details-button" (click)="openModal(digimon)">Ver Detalhes</button>
+        <button class="favorite-button" (click)="toggleFavorite(digimon)">
+          {{ digimon.isFavorite ? 'Unfav Me' : 'Fav Me' }}
+        </button>
+      </div>
+
     </div>
-  
   </div>
+
 
   <div *ngIf="filteredDigimonList.length === 0" class="no-digimon-found">
     Nenhum Digimon encontrado.
   </div>
+
+
 
   <div class="modal-backdrop" *ngIf="selectedDigimon" (click)="closeModal()"></div>
   <div class="modal" *ngIf="selectedDigimon">
@@ -53,7 +62,8 @@
     </div>
     <div class="modal-description-container">
       <p class="list-item"> {{ selectedDigimon.level }}</p>
-      <span><b>Descrição:</b> Lorem ipsum dolor sit amet, consectetur adipiscingelit. Integer nulla eros, pulvinar id magna sed, sagittis tempuselit. Nulla lacinia laoreet  magna quis maximus. </span>
+      <span><b>Descrição:</b> Lorem ipsum dolor sit amet, consectetur adipiscingelit. Integer nulla eros, pulvinar id
+        magna sed, sagittis tempuselit. Nulla lacinia laoreet magna quis maximus. </span>
     </div>
   </div>
 </main>
