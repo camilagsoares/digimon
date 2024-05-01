@@ -4,11 +4,15 @@
     <img [src]="digimon.img" alt="{{ digimon.name }}">
   </div>
   <div class="post-section">
-    <h2>Poste seu comentário sobre {{ digimon.name }}</h2>
-    <form (ngSubmit)="submitPost()">
-      <textarea [(ngModel)]="postContent" name="postContent" placeholder="Escreva o seu post..."></textarea>
-      <button type="submit">Postar</button>
-    </form>
+    <div class="post-header">
+      <h2>Poste seu comentário sobre {{ digimon.name }}</h2>
+    </div>
+    <div class="post-form-container">
+      <form (ngSubmit)="submitPost()">
+        <textarea [(ngModel)]="postContent" name="postContent" placeholder="Escreva o seu post..."></textarea>
+        <button type="submit">Postar</button>
+      </form>
+    </div>
     <div *ngIf="digimon.posts && digimon.posts.length > 0">
       <h3>Posts:</h3>
       <div *ngFor="let post of digimon.posts; let i = index">
@@ -19,7 +23,6 @@
             <button (click)="removePost(i)">Remover</button>
             <button *ngIf="!post.editing" (click)="editPost(i)" [ngClass]="{'edit-button': true, 'save-button': false}">Editar</button>
             <button *ngIf="post.editing" (click)="savePost(i)" [ngClass]="{'edit-button': false, 'save-button': true}">Salvar</button>
-            
           </div>
         </div>
       </div>

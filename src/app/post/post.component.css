@@ -25,6 +25,16 @@
   width: 400px;
 }
 
+.post-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-form-container {
+  display: flex;
+  align-items: flex-end;
+}
+
 .post-section h2 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -41,6 +51,8 @@
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  resize: none;
+  outline: none;
 }
 
 .post-section button {
@@ -64,6 +76,7 @@
 }
 
 .post {
+  width: 100%; 
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -71,6 +84,20 @@
   background-color: #fff;
   transition: box-shadow 0.3s ease;
 }
+
+.post textarea {
+  width: calc(100% - 20px); 
+  height: 100px; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+  outline: none;
+}
+
+
+
 
 .post:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 

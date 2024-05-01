@@ -3,14 +3,23 @@
 * {
     margin: 0;
     padding: 0;
-  
+
 }
 
 img {
-    user-select: none; 
-    -webkit-user-drag: none; 
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
-body{
-    background-color: #808ca3;
-}
+
+/* body {
+    background: #808ba2;
+} */
+
+
+body {
+    background: linear-gradient(to bottom, #808ca3, #80c0dd); 
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+  }
