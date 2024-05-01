@@ -51,17 +51,31 @@ export class GameComponent {
     }, 3000); 
   }
 
+
   flipCard(index: number) {
     const card = this.digimons[index];
     if (!card.flipped && !card.matched) {
       card.flipped = true;
       this.flippedCards.push(card);
-      if (this.flippedCards.length === 3) {
+      if (this.flippedCards.length === 2) {
         this.checkForMatch();
       }
+    } else if (card.flipped && this.flippedCards.length === 1) {
+  
+      card.flipped = false;
+      this.flippedCards.pop();
+      
+    } else if (card.flipped && this.flippedCards.length === 2 && this.flippedCards[0].name === card.name) {
+     
+      this.flippedCards[0].flipped = false;
+      card.flipped = false;
+      this.flippedCards = [];
     }
   }
-
+  
+  
+  
+  
   checkForMatch() {
     const flippedNames = this.flippedCards.map(card => card.name);
     const isMatch = flippedNames.every((name, i, arr) => name === arr[0]);
@@ -72,12 +86,16 @@ export class GameComponent {
         alert('Parabéns! Você encontrou todos os pares!');
       }
     } else {
-      // this.flipBackCards();
-      this.flipBackCards();
-      this.hideCardsAfterDelay();
+      // Se não é um par, deixe as cartas viradas por um momento antes de virá-las de volta
+      setTimeout(() => {
+        this.flippedCards.forEach(card => card.flipped = false);
+        this.flippedCards = [];
+      }, 1000); // Ajuste o tempo conforme necessário
     }
-    this.flippedCards = [];
   }
+  
+  
+  
 
   flipBackCards() {
     this.flippedCards.forEach(card => card.flipped = false);

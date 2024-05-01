@@ -8,21 +8,22 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { ionSearchOutline } from '@ng-icons/ionicons';
 import { ionCloseCircleOutline } from '@ng-icons/ionicons'
 
+
 export interface Digimon {
   name: string;
   img: string;
   level: string;
   isMouseOver?: boolean;
-  isFavorite?: boolean;}
+  isFavorite?: boolean;
+}
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, CommonModule,FormsModule,NgIconComponent],
+  imports: [RouterOutlet, HttpClientModule, CommonModule,FormsModule,NgIconComponent,],
   templateUrl: './home.component.html',
   viewProviders: [provideIcons({  ionSearchOutline,ionCloseCircleOutline })],
-
   providers: [DigimonService],
   styleUrl: './home.component.css'
 })
@@ -69,10 +70,15 @@ export class HomeComponent {
     } else {
       this.filteredDigimonList = [...this.digimonList];
     }
+  
+    if (this.filteredDigimonList.length === 0 && name) {
 
-    this.shouldPaginate = this.filteredDigimonList.length > 0;
-
+      this.shouldPaginate = false; 
+    } else {
+      this.shouldPaginate = true;
+    }
   }
+  
 
   openModal(digimon: Digimon) {
     this.selectedDigimon = digimon;
@@ -86,8 +92,8 @@ export class HomeComponent {
     this.router.navigate(['/digimon', digimon.name], { state: { data: digimon } });
   }
   
-  toggleFavorite(digimon: Digimon) {
-    digimon.isFavorite = !digimon.isFavorite;
-    // Aqui você pode adicionar lógica para armazenar os digimons favoritados
-  }
+  // toggleFavorite(digimon: Digimon) {
+  //   digimon.isFavorite = !digimon.isFavorite;
+    
+  // }
 } 
