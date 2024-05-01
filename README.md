@@ -4,12 +4,15 @@ Este projeto foi gerado com Angular CLI versão 17.3.6.
 Para acessar a aplicação, clique <a href="https://inchurch.vercel.app/">aqui</a>. Ou se preferir instalar, siga os passos abaixo.
 
 
+Foi um projeto pensado em fornecer uma plataforma interativa para os fãs de Digimon.
+
 ## Funcionalidades
 
 * Lista de Digimons com filtragem por níveis.
 * Pesquisa de Digimon por nome.
-* Detalhes exibidos em um modal ao clicar em um Digimon.
-* Ao clicar em um card é possível postar, editar e remover comentários sobre os Digimons.
+* Ao clicar no botão de detalhes, é aberto um modal
+* Os usuários têm a opção de marcar seus Digimons favoritos e acessá-los facilmente em uma página dedicada aos favoritos. Além disso, eles podem remover os favoritos.
+* Ao clicar no card é possível postar, editar e remover comentários sobre os Digimons.
 * Quiz de perguntas relacionadas aos Digimons.
 * Jogo de memória.
 
