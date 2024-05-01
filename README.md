@@ -1,7 +1,7 @@
 # Angular Digimon Project
 
 Este projeto foi gerado com Angular CLI versão 17.3.6.  
-Para acessar a aplicação, clique <a href="https://inchurch.vercel.app/">aqui</a>. Ou se preferir instalar, siga os passos abaixo.
+Para acessar a aplicação, clique <a href="https://digimon-frontend.vercel.app/home">aqui</a>. Ou se preferir instalar, siga os passos abaixo.
 
 
 Foi um projeto pensado em fornecer uma plataforma interativa para os fãs de Digimon.
