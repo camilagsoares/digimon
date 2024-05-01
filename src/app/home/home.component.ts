@@ -118,7 +118,7 @@ export class HomeComponent {
         }
       }
     } else {
-      console.log('localStorage is not available.');
+      // console.log('localStorage is not available.');
     }
   }
   
