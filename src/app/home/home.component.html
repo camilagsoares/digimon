@@ -13,12 +13,12 @@
 
     <div class="filter-buttons">
       <button (click)="clearFilter()" class="btn-blue">Todos</button>
-      <button (click)="filterByLevel('Fresh')">Fresh</button>
-      <button (click)="filterByLevel('In Training')">In Training</button>
-      <button (click)="filterByLevel('Rookie')">Rookie</button>
-      <button (click)="filterByLevel('Champion')">Champion</button>
-      <button (click)="filterByLevel('Mega')">Mega</button>
-      <button (click)="filterByLevel('Ultimate')">Ultimate</button>
+      <button (click)="filterByLevel('Fresh')" [class.selected]="selectedFilter === 'Fresh'">Fresh</button>
+      <button (click)="filterByLevel('In Training')" [class.selected]="selectedFilter === 'In Training'">In Training</button>
+      <button (click)="filterByLevel('Rookie')" [class.selected]="selectedFilter === 'Rookie'">Rookie</button>
+      <button (click)="filterByLevel('Champion')" [class.selected]="selectedFilter === 'Champion'">Champion</button>
+      <button (click)="filterByLevel('Mega')" [class.selected]="selectedFilter === 'Mega'">Mega</button>
+      <button (click)="filterByLevel('Ultimate')" [class.selected]="selectedFilter === 'Ultimate'">Ultimate</button>
     </div>
   </div>
 

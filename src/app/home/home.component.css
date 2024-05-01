@@ -201,6 +201,10 @@
     background-color: #008CC7;
   }
   
+  .filter-section button.selected {
+    background-color: rgb(98, 113, 128); 
+  }
+  
   .filter-section button:hover {
     background-color: rgb(98, 113, 128);
   }

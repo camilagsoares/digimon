@@ -38,6 +38,7 @@ export class HomeComponent {
   selectedDigimon: Digimon | null = null;
   selectedDigimonName: string = '';
   favoriteButtonStates: { [key: string]: boolean } = {};
+  selectedFilter: string = 'All';
 
   constructor(private digimonService: DigimonService,private router: Router) {}
 
@@ -54,6 +55,7 @@ export class HomeComponent {
   }
 
   filterByLevel(level: string) {
+    this.selectedFilter = level; 
     if (level === 'All') {
       this.filteredDigimonList = [...this.digimonList];
     } else {
@@ -62,6 +64,7 @@ export class HomeComponent {
   }
 
   clearFilter() {
+    this.selectedFilter = 'All';
     this.filteredDigimonList = [...this.digimonList];
   }
 
