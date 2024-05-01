@@ -23,14 +23,18 @@ export class FavoritesComponent {
     this.loadFavoritesFromStorage();
   }
 
-  loadFavoritesFromStorage(): void {
-    const favoritesData = localStorage.getItem('favorites');
-    if (favoritesData) {
-      try {
-        this.favoriteDigimons = JSON.parse(favoritesData);
-      } catch (error) {
-        console.error('Error parsing favorites data:', error);
+ loadFavoritesFromStorage(): void {
+    if (typeof localStorage !== 'undefined') {
+      const favoritesData = localStorage.getItem('favorites');
+      if (favoritesData) {
+        try {
+          this.favoriteDigimons = JSON.parse(favoritesData);
+        } catch (error) {
+          console.error('Error parsing favorites data:', error);
+        }
       }
+    } else {
+      console.error('O localStorage não está disponível neste ambiente.');
     }
   }
 
