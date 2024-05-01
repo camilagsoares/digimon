@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { NgIconComponent } from '@ng-icons/core';
 import { Digimon } from '../home/home.component';
 
+declare let localStorage: any;
+
 @Component({
   selector: 'app-favorites',
   standalone: true,
@@ -23,7 +25,8 @@ export class FavoritesComponent {
     this.loadFavoritesFromStorage();
   }
 
- loadFavoritesFromStorage(): void {
+
+  loadFavoritesFromStorage(): void {
     if (typeof localStorage !== 'undefined') {
       const favoritesData = localStorage.getItem('favorites');
       if (favoritesData) {
@@ -34,7 +37,7 @@ export class FavoritesComponent {
         }
       }
     } else {
-      console.error('O localStorage não está disponível neste ambiente.');
+      console.error('localStorage is not available');
     }
   }
 
